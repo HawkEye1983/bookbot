@@ -13,7 +13,17 @@ def get_num_letters(book):
             letter_count[letter.lower()] = 1
     return letter_count
 
+def sort_on(dict):
+    return dict["num"]
+
+def letter_sort(letter_dict):
+    letters = []
+    for letter in letter_dict:
+        letters.append({ "char": letter, "num": letter_dict[letter]})
+    letters.sort(reverse=True, key=sort_on)
+    return letters
+
 def main():
-    get_num_letters("books/frankenstein.txt")
+    letter_sort(get_num_letters("books/frankenstein.txt"))
 
 main()
